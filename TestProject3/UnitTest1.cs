@@ -18,11 +18,19 @@ public class Tests
     }
 
     [Test]
+    public void HH_Goal_Chain()
+    {
+        _matchResult.HomeGoal().HomeGoal();
+        ResultShouldBe("HH");
+    }
+
+    [Test]
     public void HH_Goal()
     {
         GivenHomeGoalTime(2);
         ResultShouldBe("HH");
     }
+
 
     [Test]
     public void Away_Goal()
@@ -35,6 +43,13 @@ public class Tests
     public void AA_Goal()
     {
         GivenAwayGoalTime(2);
+        ResultShouldBe("AA");
+    }
+
+    [Test]
+    public void AA_Goal_Chain()
+    {
+        _matchResult.AwayGoal().AwayGoal();
         ResultShouldBe("AA");
     }
 
@@ -61,6 +76,14 @@ public class Tests
         GivenAwayGoalTime(2);
         ResultShouldBe("HH;AA");
     }
+
+    [Test]
+    public void HHChangeAA_Chain()
+    {
+        _matchResult.HomeGoal().HomeGoal().ChangeField().AwayGoal().AwayGoal();
+        ResultShouldBe("HH;AA");
+    }
+
 
     private void GivenChangeFiled()
     {

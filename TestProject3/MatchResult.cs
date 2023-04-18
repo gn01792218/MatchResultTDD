@@ -12,19 +12,22 @@ public class MatchResult
     {
         return _result;
     }
-    public string HomeGoal()
+    public MatchResult HomeGoal()
     {
-        return _result+="H";
+        _result+="H";
+        return this;
     }
 
 
-    public string AwayGoal()
+    public MatchResult AwayGoal()
     {
-        return _result+="A";
+        _result+="A";
+        return this;
     }
 
-    public string ChangeField()
+    public MatchResult ChangeField()
     {
-        return _result+=";";
+        _result+=";";
+        return this;
     }
 }
