@@ -13,14 +13,14 @@ public class Tests
     [Test]
     public void Home_Goal()
     {
-        GiveHomeGoalTime(1);
+        GivenHomeGoalTime(1);
         ResultShouldBe("H");
     }
 
     [Test]
     public void HH_Goal()
     {
-        GiveHomeGoalTime(2);
+        GivenHomeGoalTime(2);
         ResultShouldBe("HH");
     }
 
@@ -41,7 +41,7 @@ public class Tests
     [Test]
     public void HA_Goal()
     {
-        GiveHomeGoalTime(1);
+        GivenHomeGoalTime(1);
         GivenAwayGoalTime(1);
         ResultShouldBe("HA");
     }
@@ -56,7 +56,7 @@ public class Tests
     [Test]
     public void HHChangeAA()
     {
-        GiveHomeGoalTime(2);
+        GivenHomeGoalTime(2);
         GivenChangeFiled();
         GivenAwayGoalTime(2);
         ResultShouldBe("HH;AA");
@@ -76,7 +76,7 @@ public class Tests
         }
     }
 
-    private void GiveHomeGoalTime(int time)
+    private void GivenHomeGoalTime(int time)
     {
         for (int i = 0; i < time; i++)
         {
