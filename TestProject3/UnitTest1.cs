@@ -78,10 +78,31 @@ public class Tests
     }
 
     [Test]
-    public void HHChangeAA_Chain()
+    public void Remove_NoChangeEnd_Goal()
     {
-        _matchResult.HomeGoal().HomeGoal().ChangeField().AwayGoal().AwayGoal();
-        ResultShouldBe("HH;AA");
+        GivenNoChangEndResult();
+        GivenRemoveGoal();
+        ResultShouldBe("HH;AA;H");
+    }
+
+    [Test]
+    public void Remove_ChangeEnd_Goal()
+    {
+        _matchResult.HomeGoal().AwayGoal().ChangeField().HomeGoal().AwayGoal().ChangeField();
+        GivenRemoveGoal();
+        ResultShouldBe("HA;H;");
+    }
+
+
+    private void GivenRemoveGoal()
+    {
+        _matchResult.RemoveGoal();
+    }
+
+
+    private void GivenNoChangEndResult()
+    {
+        _matchResult.HomeGoal().HomeGoal().ChangeField().AwayGoal().AwayGoal().ChangeField().HomeGoal().AwayGoal();
     }
 
 
@@ -89,7 +110,6 @@ public class Tests
     {
         _matchResult.ChangeField();
     }
-
 
     private void GivenAwayGoalTime(int time)
     {
